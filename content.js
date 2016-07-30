@@ -18,7 +18,28 @@ function highlight(text,inputText){
 
 var init = function(){
 
-  var reviewTextBoxes = document.querySelectorAll('.a-section.review')
+  var topReviewBoxes = document.querySelectorAll('.view-point-review.critical-review, .view-point-review.positive-review');
+
+  Array.prototype.slice.call(topReviewBoxes).map(function(topReviewBox){
+
+    var topReviewBoxContent = topReviewBox.querySelector('.a-row.a-spacing-top-mini .a-size-base').textContent;
+    var sentence = "";
+    var isPaid = stringToMatch.some(function(str){
+
+      if ( topReviewBoxContent.indexOf(str) > -1 ) sentence = str;
+      return topReviewBoxContent.indexOf(str) > -1; 
+
+    });
+
+    if (isPaid){
+      topReviewBox.classList.add('paid-review');
+      highlight(sentence,topReviewBox);
+    }
+
+  });
+
+
+  var reviewTextBoxes = document.querySelectorAll('.a-section.review');
 
   Array.prototype.slice.call(reviewTextBoxes).map(function(reviewTextBox){
 
