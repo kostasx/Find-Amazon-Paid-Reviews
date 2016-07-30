@@ -1,0 +1,25 @@
+.paid-review {
+  position: relative;
+}
+
+.paid-review .highlight {
+  background-color:yellow;
+}
+
+.paid-review .a-button-beside-text,
+.paid-review .a-link-normal {
+  visibility: hidden;
+}
+
+.paid-review::before {
+
+  content    : "PAID";
+  position   : absolute;
+  width      : 100%;
+  background : rgba(65, 78, 103, .8);
+  height     : 100%;
+  color      : white;
+  text-align : center;
+  font-size  : 36px;
+
+}
